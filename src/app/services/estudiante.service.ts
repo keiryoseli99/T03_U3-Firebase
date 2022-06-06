@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection  } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { Estudiante } from 'src/app/models/estudiante';
 
 @Injectable({
@@ -8,7 +9,11 @@ import { Estudiante } from 'src/app/models/estudiante';
 })
 export class EstudianteService {
 
-  constructor(private firestore:AngularFirestore) { }
+  // private coleccion: AngularFirestoreCollection<Estudiante>
+
+  constructor(private firestore:AngularFirestore) {
+    // this.coleccion = this.firestore.collection<Estudiante>('estudiante');
+   }
 
   createStudent(student: Estudiante){
     return this.firestore.collection('estudiante').add(student);
@@ -16,5 +21,22 @@ export class EstudianteService {
 
   getStudents(){
     return this.firestore.collection('estudiante').snapshotChanges();
+  }
+
+  getStudentById(id: string){
+    return this.firestore.collection('estudiante').doc(id).snapshotChanges();
+    //return this.firestore.collection('estudiante').valueChanges({idField: id});
+  }
+
+  // getStudentById(id){
+  //   return this.firestore.collection('estudiante').snapshotChanges(id);
+  // }
+
+  updateStudent(student: Estudiante, id: String){
+    return this.firestore.doc('estudiante/'+id).update(student);
+  }
+
+  deleteStudent(id: String){
+    return this.firestore.doc('estudiante/'+id).delete();
   }
 }

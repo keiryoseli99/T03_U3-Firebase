@@ -22,13 +22,13 @@ export class NewStudentPage implements OnInit {
     private fb:FormBuilder
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.myForm = this.fb.group({
-      name:["",Validators.required, Validators.minLength(3), Validators.maxLength(150)],
-      controlnumber:["",Validators.required, Validators.minLength(10), Validators.maxLength(10)],
-      curp:["",Validators.required, Validators.pattern('"^[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]$"')],
-      age:[0,Validators.required],
-      active:[false,Validators.required]
+      name:["",[Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
+      controlnumber:["",[Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      curp:["",[Validators.required, Validators.pattern("^[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]$")]],
+      age:[0,[Validators.required]],
+      active:[false,[Validators.required]]
     });
 
     this.validationMessages = {

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
-import { NewStudentPageRoutingModule } from './new-student-routing.module';
-import { NewStudentPage } from './new-student.page';
+
+import { UpdatePageRoutingModule } from './update-routing.module';
+
+import { UpdatePage } from './update.page';
 
 @NgModule({
   imports: [
@@ -11,8 +14,8 @@ import { NewStudentPage } from './new-student.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    NewStudentPageRoutingModule
+    UpdatePageRoutingModule
   ],
-  declarations: [NewStudentPage]
+  declarations: [UpdatePage]
 })
-export class NewStudentPageModule {}
+export class UpdatePageModule {}

@@ -1,9 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>newStudent</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content color="light" padding>
   <ion-grid>
     <form [formGroup]="myForm">
@@ -90,7 +84,7 @@
             </ion-row>
           </div>
           <div padding>
-            <ion-button size="large" type="submit" [disabled]="!myForm.valid" routerLink="/home" (click)="create()" expand="block" color="dark">
+            <ion-button size="large" type="submit" [disabled]="!myForm.valid" routerLink="/home" (click)="update()" expand="block" color="dark">
               Guardar
             </ion-button>
           </div>
@@ -104,3 +98,4 @@
     </form>
   </ion-grid>
 </ion-content>
+
